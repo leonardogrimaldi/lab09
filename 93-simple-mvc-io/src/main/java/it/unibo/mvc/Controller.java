@@ -16,6 +16,10 @@ public class Controller {
         + "output.txt";
     private File file;
 
+    public Controller() {
+        file = new File(DEFAULT_FILE);
+    }
+
     public void saveString(String input) throws IOException {
         try (PrintStream ps = new PrintStream(file, StandardCharsets.UTF_8)) {
             ps.print(input);
