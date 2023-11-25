@@ -12,12 +12,15 @@ public final class SimpleController implements Controller {
 
     private String currentString = "";
     private String nextString = "";
-    private final List<String> printed = new ArrayList<>();
+    /**
+     * History of printed strings
+     */
+    private final List<String> history = new ArrayList<>();
 
     @Override
     public void print(String input) {
         System.out.println(input);
-        printed.add(input);
+        history.add(input);
     }
 
     public String getNextString() {
@@ -35,13 +38,8 @@ public final class SimpleController implements Controller {
         print(currentString);
     }
 
-    public void printNextString() {
-
-    }
-
-    public List<String> printHistory() {
-
-        return null;
+    public List<String> getHistory() {
+        return history;
     }
 
 }
