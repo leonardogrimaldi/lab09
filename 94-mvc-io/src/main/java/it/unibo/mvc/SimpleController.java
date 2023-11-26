@@ -10,19 +10,13 @@ import java.util.Objects;
  */
 public final class SimpleController implements Controller {
 
-    private String currentString = "";
     private String nextString = "";
     /**
      * History of printed strings
      */
     private final List<String> history = new ArrayList<>();
-
+    
     @Override
-    public void print(String input) {
-        System.out.println(input);
-        history.add(input);
-    }
-
     public String getNextString() {
         return nextString;
     }
@@ -32,14 +26,14 @@ public final class SimpleController implements Controller {
     }
 
     public void printCurrentString() {
-        if (currentString.equals("")) {
+        if (nextString.equals("")) {
             throw new IllegalStateException("currentString is unset");
         }
-        print(currentString);
+        System.out.println(nextString);
+        history.add(nextString);
     }
 
     public List<String> getHistory() {
         return history;
     }
-
 }
